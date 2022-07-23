@@ -1,0 +1,1 @@
+Si querés ver los ejercicios, vas a la carpeta del ejercicio y luego a la carpeta 'src', dentro vas a encontrar las carpetas asociadas a cada paquete de las clases
