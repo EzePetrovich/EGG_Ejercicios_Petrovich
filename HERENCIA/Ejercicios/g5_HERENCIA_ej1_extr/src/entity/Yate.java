@@ -1,7 +1,7 @@
 
 package entity;
 
-public class Yate extends BarcoMotorizado {
+public final class Yate extends BarcoMotorizado {
     
     // Attribute
     
@@ -11,8 +11,8 @@ public class Yate extends BarcoMotorizado {
     
     public Yate() {}
     
-    public Yate(int numCamarotes, int potCV, String matricula, int eslora, int añoFab) {
-        super(potCV, matricula, eslora, añoFab);
+    public Yate(int numCamarotes, int potCV, String matricula, int eslora, int anioFab) {
+        super(potCV, matricula, eslora, anioFab);
         this.numCamarotes = numCamarotes;
     }
     

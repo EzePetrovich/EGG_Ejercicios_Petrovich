@@ -4,7 +4,7 @@
 
 package entity;
 
-public class PersonalDeServicio extends Empleado {
+public final class PersonalDeServicio extends Empleado {
     
     // Attribute
     

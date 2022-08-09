@@ -3,7 +3,7 @@ package entity;
 
 import java.util.Comparator;
 
-public class Residencia extends ExtraHotel {
+public final class Residencia extends ExtraHotel {
     
     // Attributes
     

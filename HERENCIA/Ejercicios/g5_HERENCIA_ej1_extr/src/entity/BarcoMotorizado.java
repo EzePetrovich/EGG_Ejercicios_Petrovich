@@ -11,8 +11,8 @@ public class BarcoMotorizado extends Barco {
     
     public BarcoMotorizado() {}
     
-    public BarcoMotorizado(int potCV, String matricula, int eslora, int añoFab) {
-        super(matricula, eslora, añoFab);
+    public BarcoMotorizado(int potCV, String matricula, int eslora, int anioFab) {
+        super(matricula, eslora, anioFab);
         this.potCV = potCV;
     }
     

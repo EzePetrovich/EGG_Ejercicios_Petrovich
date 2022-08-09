@@ -3,34 +3,34 @@ package entity;
 
 import java.util.Comparator;
 
-public class Camping extends ExtraHotel {
+public final class Camping extends ExtraHotel {
     
     // Attributes
     
-    private int capMaxCarp, cantBaños;
+    private int capMaxCarp, cantBanios;
     private Boolean tieneRest;
     
     // Constructors
     
     public Camping() {}
     
-    public Camping(int capMaxCarp, int cantBaños, boolean tieneRest, boolean esPrivado, int terreno, String nombre, String dir, String loc, String gerente) {
+    public Camping(int capMaxCarp, int cantBanios, boolean tieneRest, boolean esPrivado, int terreno, String nombre, String dir, String loc, String gerente) {
         super(esPrivado, terreno, nombre, dir, loc, gerente);
         this.capMaxCarp = capMaxCarp;
-        this.cantBaños = cantBaños;
+        this.cantBanios = cantBanios;
         this.tieneRest = tieneRest;
     }
     
     // Getters
     
     public int getCapMaxCarp() {return capMaxCarp;}
-    public int getCantBaños() {return cantBaños;}
+    public int getCantBanios() {return cantBanios;}
     public Boolean isTieneRest() {return tieneRest;}
     
     // Setters
 
     public void setCapMaxCarp(int capMaxCarp) {this.capMaxCarp = capMaxCarp;}
-    public void setCantBaños(int cantBaños) {this.cantBaños = cantBaños;}
+    public void setCantBanios(int cantBanios) {this.cantBanios = cantBanios;}
     public void setTieneRest(Boolean tieneRest) {this.tieneRest = tieneRest;}
     
     @Override
@@ -38,7 +38,7 @@ public class Camping extends ExtraHotel {
         String rest, priv;
         if(tieneRest) {rest = "Si";} else {rest = "No";}
         if(esPrivado) {priv = "Si";} else {priv = "No";}
-        return "\nCamping: " + nombre + "\nLocalidad: " + loc + "\nDireccion: " + dir + "\nGerente: " + gerente + "\nTerreno: " + terreno + "m²" + "\nTiene restaurante: " + rest + "\nEs privado: " + priv + "\nCantidad de baños: " + cantBaños + "\nCapacidad máxima de carpas: " + capMaxCarp;
+        return "\nCamping: " + nombre + "\nLocalidad: " + loc + "\nDireccion: " + dir + "\nGerente: " + gerente + "\nTerreno: " + terreno + "m²" + "\nTiene restaurante: " + rest + "\nEs privado: " + priv + "\nCantidad de baños: " + cantBanios + "\nCapacidad máxima de carpas: " + capMaxCarp;
     }
     
     public static Comparator<Camping> compararPrecios = new Comparator<Camping>() {

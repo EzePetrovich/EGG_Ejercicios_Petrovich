@@ -13,29 +13,29 @@ public abstract class Barco {
     
     protected String matricula;
     protected int eslora;
-    protected int añoFab;
+    protected int anioFab;
     
     // Constructors
     
     public Barco() {}
 
-    public Barco(String matricula, int eslora, int añoFab) {
+    public Barco(String matricula, int eslora, int anioFab) {
         this.matricula = matricula;
         this.eslora = eslora;
-        this.añoFab = añoFab;
+        this.anioFab = anioFab;
     }
     
     // Getters
 
     public String getMatricula() {return matricula;}
     public int getEslora() {return eslora;}
-    public int getAñoFab() {return añoFab;}
+    public int getAnioFab() {return anioFab;}
     
     // Setters
 
     public void setMatricula(String matricula) {this.matricula = matricula;}
     public void setEslora(int eslora) {this.eslora = eslora;}
-    public void setAñoFab(int añoFab) {this.añoFab = añoFab;}
+    public void setAnioFab(int anioFab) {this.anioFab = anioFab;}
     
     // Method of the class
 
@@ -46,7 +46,7 @@ public abstract class Barco {
         System.out.print("» Eslora [en metros]: ");
         eslora = read.nextInt();
         System.out.print("» Año de fabricacion: ");
-        añoFab = read.nextInt();
+        anioFab = read.nextInt();
     }
     
     public int moduloBarco() {return eslora * 10;}

@@ -18,7 +18,7 @@ public abstract class Edificio {
      * ArrayList edificios
      * 
      * Para crear los edificios con método crearEdificio() y agregarlos sin necesidad de 
-     * crear una lista en el main es una manera que diseñé, no pide el ejercicio.
+     * crear una lista en el main, es una manera que diseñé, no pide el ejercicio.
      * Para utilizarlo hay que descomentar el atributo de abajo ↓ y los métodos en
      * la clase padre e hijos.
      */
