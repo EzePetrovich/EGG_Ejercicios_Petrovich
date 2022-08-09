@@ -1,7 +1,7 @@
 
 package entity;
 
-public class Rectangulo extends FormaGeometrica implements calculosFormas {
+public final class Rectangulo extends FormaGeometrica {
     
     // Attributes
     

@@ -1,7 +1,7 @@
 
 package entity;
 
-public class Circulo extends FormaGeometrica implements calculosFormas {
+public final class Circulo extends FormaGeometrica {
     
     // Attributes
     

@@ -1,7 +1,7 @@
 
 package entity;
 
-public class Televisor extends Electrodomestico {
+public final class Televisor extends Electrodomestico {
     
     // Attributes
     

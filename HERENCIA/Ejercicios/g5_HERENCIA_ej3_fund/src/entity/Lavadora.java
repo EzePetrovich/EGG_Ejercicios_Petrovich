@@ -1,7 +1,7 @@
 
 package entity;
 
-public class Lavadora extends Electrodomestico {
+public final class Lavadora extends Electrodomestico {
     
     // Attributes
     
