@@ -19,7 +19,14 @@ public class ProductService {
         System.out.println("1) AÑADIR NUEVO PRODUCTO.");
         System.out.println();
         Product p = crearProducto();
-        products.put(p.getName(), p.getPrice());
+        if(!products.containsKey(p.getName())) {products.put(p.getName(), p.getPrice());}
+        else {
+            System.out.println("\nERROR: el producto ya existe.");
+            System.out.println("\nPresione intro para seguir...");
+            try {System.in.read();}
+            catch(IOException e) {}
+        }
+        
     }
     public void modificarPrecio(HashMap<String, Integer> products) {
         System.out.println("3) MODIFICAR PRECIO DE UN PRODUCTO.");
@@ -29,7 +36,6 @@ public class ProductService {
             if(name.equals(nameProd)) {
                 find = true;
                 System.out.print("» Precio nuevo: $"); Integer price = read.nextInt();
-                products.remove(name);
                 products.put(nameProd, price);
                 break;
             }
