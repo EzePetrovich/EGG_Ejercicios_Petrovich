@@ -31,6 +31,7 @@ public class ProductService {
                 System.out.print("» Precio nuevo: $"); Integer price = read.nextInt();
                 products.remove(name);
                 products.put(nameProd, price);
+                break;
             }
         }
         System.out.println();
@@ -46,9 +47,10 @@ public class ProductService {
         System.out.println();
         System.out.print("» Nombre de producto: "); String nameProd = read.next(); boolean find = false;
         for(String name: products.keySet()) {
-            if(name.equals(nameProd)) {
+            if(name.equalsIgnoreCase(nameProd)) {
                 find = true;
                 products.remove(name);
+                break;
             }
         }
         System.out.println();
