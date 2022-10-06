@@ -125,3 +125,10 @@ ORDER BY equipo_local ASC;
 
 # 18)
 
+SELECT codigo AS `Código partido`, equipo_local AS `Local`, equipo_visitante AS `Visitante`,
+CASE
+	WHEN puntos_local > puntos_visitante THEN equipo_local
+    WHEN puntos_local < puntos_visitante THEN equipo_visitante
+    ELSE NULL
+END AS Ganador
+FROM nba.partido;
