@@ -16,20 +16,20 @@ public class Autor implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-    private String nombre;
-    private Boolean alta;
+    private String name;
+    private Boolean entry;
     
     // Getters
     
     public Integer getId() {return id;}
-    public String getNombre() {return nombre;}
-    public Boolean isAlta() {return alta;}
+    public String getName() {return name;}
+    public Boolean isEntry() {return entry;}
     
     // Setters
     
     public void setId(Integer id) {this.id = id;}
-    public void setNombre(String nombre) {this.nombre = nombre;}
-    public void setAlta(Boolean alta) {this.alta = alta;}
+    public void setName(String name) {this.name = name;}
+    public void setEntry(Boolean entry) {this.entry = entry;}
     
     @Override
     public int hashCode() {
