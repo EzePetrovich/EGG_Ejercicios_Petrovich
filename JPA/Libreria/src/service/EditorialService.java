@@ -6,15 +6,15 @@ import utilities.Tools;
 
 public class EditorialService implements Tools {
     
+    private final EditorialDAO DAO = new EditorialDAO();
+    
     public void create() {
         Editorial editorial = new Editorial();
         System.out.println("\nCREAR EDITORIAL\n");
         System.out.print("» Nombre editorial: ");
         editorial.setNombre(read.next());
         editorial.setAlta(Boolean.TRUE);
-        em.getTransaction().begin();
-        em.persist(editorial);
-        em.getTransaction().commit();
+        DAO.saveObj(editorial);
     }
     
     public Editorial findEditorial(Integer id) {
@@ -27,8 +27,7 @@ public class EditorialService implements Tools {
         System.out.print("» ID editorial: ");
         Editorial editorial = findEditorial(read.nextInt());
         try {
-            System.out.println("·ID: " + editorial.getId());
-            System.out.println("·Nombre: " + editorial.getNombre());
+            System.out.println(editorial);
             Tools.pressIntro();
         }
         catch(NullPointerException e) {
@@ -48,6 +47,7 @@ public class EditorialService implements Tools {
             if(!resp.equalsIgnoreCase("n")) {
                 System.out.print("» Nuevo nombre: ");
                 editorial.setNombre(read.next());
+                DAO.modifyObj(editorial);
             }
         }
         else {System.err.println("ERROR: no se encontro la editorial.");}
@@ -60,9 +60,7 @@ public class EditorialService implements Tools {
         Editorial editorial = findEditorial(read.nextInt());
         try {
             editorial.setAlta(Boolean.FALSE);
-            em.getTransaction().begin();
-            em.merge(editorial);
-            em.getTransaction().commit();
+            DAO.deleteObj(editorial);
             System.out.println("\nBaja logica con exito.");
             Tools.pressIntro();
         }
@@ -73,7 +71,7 @@ public class EditorialService implements Tools {
     }
     
     public void subMenu() {
-        Boolean quit = false;
+        Boolean quit = Boolean.FALSE;
         do {
             System.out.println("\nSUBMENU EDITORIAL\n");
             System.out.println("1) Crear.");
@@ -97,7 +95,7 @@ public class EditorialService implements Tools {
                     remove();
                     break;
                 case "5":
-                    quit = true;
+                    quit = Boolean.TRUE;
                     break;
                 default:
                     System.err.println("ERROR: opcion ingresada inexistente.");
