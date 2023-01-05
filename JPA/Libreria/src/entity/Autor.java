@@ -53,7 +53,7 @@ public class Autor implements Serializable {
 
     @Override
     public String toString() {
-        return "entity.Autor[ id=" + id + " ]";
+        return "Autor { id = " + id + "; name = " + name + " }";
     }
     
 }
