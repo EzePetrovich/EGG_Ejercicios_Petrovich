@@ -17,15 +17,15 @@ public class Libro implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long isbn;
-    private String titulo;
-    private Integer anio;
-    private Integer ejemplares;
-    private Integer ejemplaresPrest;
-    private Integer ejemplaresDisp;
-    private Boolean alta;
+    private String title;
+    private Integer year;
+    private Integer exemplars;
+    private Integer borrowedExemplars;
+    private Integer availablesExemplars;
+    private Boolean entry;
     
     @ManyToOne
-    private Autor autor;
+    private Autor author;
     
     @ManyToOne
     private Editorial editorial;
@@ -33,25 +33,25 @@ public class Libro implements Serializable {
     // Getters
     
     public Long getIsbn() {return isbn;}
-    public String getTitulo() {return titulo;}
-    public Integer getAnio() {return anio;}
-    public Integer getEjemplares() {return ejemplares;}
-    public Integer getEjemplaresPrest() {return ejemplaresPrest;}
-    public Integer getEjemplaresDisp() {return ejemplaresDisp;}
-    public Boolean isAlta() {return alta;}
-    public Autor getAutor() {return autor;}
+    public String getTitle() {return title;}
+    public Integer getYear() {return year;}
+    public Integer getExemplars() {return exemplars;}
+    public Integer getBorrowedExemplars() {return borrowedExemplars;}
+    public Integer getAvailablesExemplars() {return availablesExemplars;}
+    public Boolean isEntry() {return entry;}
+    public Autor getAuthor() {return author;}
     public Editorial getEditorial() {return editorial;}
     
     // Setters
 
     public void setIsbn(Long isbn) {this.isbn = isbn;}
-    public void setTitulo(String titulo) {this.titulo = titulo;}
-    public void setAnio(Integer anio) {this.anio = anio;}
-    public void setEjemplares(Integer ejemplares) {this.ejemplares = ejemplares;}
-    public void setEjemplaresPrest(Integer ejemplaresPrest) {this.ejemplaresPrest = ejemplaresPrest;}
-    public void setEjemplaresDisp(Integer ejemplaresDisp) {this.ejemplaresDisp = ejemplaresDisp;}
-    public void setAlta(Boolean alta) {this.alta = alta;}
-    public void setAutor(Autor autor) {this.autor = autor;}
+    public void setTitle(String title) {this.title = title;}
+    public void setYear(Integer year) {this.year = year;}
+    public void setExemplars(Integer exemplars) {this.exemplars = exemplars;}
+    public void setBorrowedExemplars(Integer borrowedExemplars) {this.borrowedExemplars = borrowedExemplars;}
+    public void setAvailablesExemplars(Integer availablesExemplars) {this.availablesExemplars = availablesExemplars;}
+    public void setEntry(Boolean entry) {this.entry = entry;}
+    public void setAuthor(Autor author) {this.author = author;}
     public void setEditorial(Editorial editorial) {this.editorial = editorial;}
     
     @Override
@@ -76,7 +76,7 @@ public class Libro implements Serializable {
 
     @Override
     public String toString() {
-        return "entity.Libro[ id=" + isbn + " ]";
+        return "Libro {isbn = " + isbn + "; title = " + title + "; year = " + year + "; exemplars = " + exemplars + "; borrowedExemplars = " + borrowedExemplars + "; availablesExemplars = " + availablesExemplars + "; author = " + author.name + "; editorial = " + editorial.name + "}";
     }
         
 }
