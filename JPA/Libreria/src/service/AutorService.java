@@ -28,8 +28,7 @@ public class AutorService implements Tools {
         System.out.print("» Nombre del autor: ");
         Autor autor = DAO.searchByName(read.next());
         try {
-            System.out.println("·ID: " + autor.getId());
-            System.out.println("·Nombre: " + autor.getNombre());
+            System.out.println(autor);
             Tools.pressIntro();
         }
         catch(NullPointerException e) {
@@ -40,10 +39,10 @@ public class AutorService implements Tools {
     
     public void modify() {
         String resp;
-        System.out.println("");
+        System.out.println("\nMODIFICAR AUTOR\n");
+        System.out.print("\n» Id autor: ");
         Autor autor = findAutor(read.nextInt());
         if(autor != null) {
-            System.out.println("\nMODIFICAR AUTOR (n para omitir)\n");
             System.out.print("» Nombre? [s/n]: ");
             resp = read.next();
             if(!resp.equalsIgnoreCase("n")) {
@@ -52,7 +51,6 @@ public class AutorService implements Tools {
             }
         }
         else {System.err.println("ERROR: no se encontro el autor.");}
-        
     }
     
     public void remove() {
