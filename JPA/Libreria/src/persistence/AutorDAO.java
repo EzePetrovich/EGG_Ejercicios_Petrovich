@@ -6,12 +6,13 @@ import java.util.List;
 public class AutorDAO extends DAO<Autor> {
   
   @Override
-  public void saveObj(Autor autor) {
-    super.saveObj(autor);
-  }
+  public void saveObj(Autor autor) {super.saveObj(autor);}
+  
+  @Override
+  public void modifyObj(Autor autor) {super.modifyObj(autor);}
   
   public void deleteObj(Autor autor) {
-    autor.setAlta(false);
+    autor.setAlta(Boolean.FALSE);
     super.modifyObj(autor);
   }
   
