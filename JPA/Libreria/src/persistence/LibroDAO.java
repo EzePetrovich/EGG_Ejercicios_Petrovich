@@ -8,9 +8,10 @@ import java.util.List;
 public class LibroDAO extends DAO<Libro> {
   
   @Override
-  public void saveObj(Libro libro) {
-    super.saveObj(libro);
-  }
+  public void saveObj(Libro libro) {super.saveObj(libro);}
+  
+  @Override
+  public void modifyObj(Libro libro) {super.modifyObj(libro);
   
   public void deleteObj(Libro libro) {
     libro.setAlta(Boolean.FALSE);
