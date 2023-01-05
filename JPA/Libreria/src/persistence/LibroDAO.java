@@ -1,6 +1,8 @@
 package persistence;
 
 import entity.Libro;
+import entity.Autor;
+import entity.Editorial;
 import java.util.List;
 
 public class LibroDAO extends DAO<Libro> {
@@ -11,7 +13,7 @@ public class LibroDAO extends DAO<Libro> {
   }
   
   public void deleteObj(Libro libro) {
-    libro.setAlta(false);
+    libro.setAlta(Boolean.FALSE);
     super.modifyObj(libro);
   }
   
@@ -20,6 +22,16 @@ public class LibroDAO extends DAO<Libro> {
     List<Libro> libros = em.createQuery("SELECT l FROM Libro l").getResultList();
     disconnect();
     return libros;
+  }
+  
+  public Autor findAutor(Integer id) {
+    Autor autor = em.find(Autor.class, id);
+    return autor;
+  }
+  
+  public Editorial findEditorial(Integer id) {
+    Editorial editorial = em.find(Editorial.class, id);
+    return editorial;
   }
   
   public Libro searchByISBN(Long isbn) {
