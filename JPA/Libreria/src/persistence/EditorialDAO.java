@@ -12,7 +12,7 @@ public class EditorialDAO extends DAO<Editorial> {
   public void modifyObj(Editorial editorial) {super.modifyObj(editorial);}
   
   public void deleteObj(Editorial editorial) {
-    editorial.setAlta(false);
+    editorial.setAlta(Boolean.FALSE);
     super.modifyObj(editorial);
   }
   
