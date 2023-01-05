@@ -6,9 +6,10 @@ import java.util.List;
 public class EditorialDAO extends DAO<Editorial> {
   
   @Override
-  public void saveObj(Editorial editorial) {
-    super.saveObj(editorial);
-  }
+  public void saveObj(Editorial editorial) {super.saveObj(editorial);}
+  
+  @Override
+  public void modifyObj(Editorial editorial) {super.modifyObj(editorial);}
   
   public void deleteObj(Editorial editorial) {
     editorial.setAlta(false);
