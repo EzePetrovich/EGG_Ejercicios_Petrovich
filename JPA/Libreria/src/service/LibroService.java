@@ -8,6 +8,8 @@ import utilities.Tools;
 
 public class LibroService implements Tools {
     
+    private final LibroDAO DAO = new LibroDAO();
+    
     public Libro findLibro(Long isbn) {
         Libro libro = em.find(Libro.class, isbn);
         return libro;
@@ -17,9 +19,9 @@ public class LibroService implements Tools {
         Libro libro = new Libro();
         System.out.println("\nCREAR LIBRO\n");
         System.out.print("· ID de autor: ");
-        Autor autor = em.find(Autor.class, read.nextInt());
+        Autor autor = DAO.findAutor(read.nextInt());
         System.out.print("· ID de editorial: ");
-        Editorial editorial = em.find(Editorial.class, read.nextInt());
+        Editorial editorial = DAO.findEditorial(read.nextInt());
         System.out.print("· Titulo: ");
         libro.setTitulo(read.next());
         System.out.print("· Anio: ");
@@ -32,9 +34,7 @@ public class LibroService implements Tools {
         libro.setAlta(Boolean.TRUE);
         libro.setAutor(autor);
         libro.setEditorial(editorial);
-        em.getTransaction().begin();
-        em.persist(libro);
-        em.getTransaction().commit();
+        DAO.saveObj(libro);
     }
     
     public void consult() {
@@ -44,22 +44,19 @@ public class LibroService implements Tools {
         try {
             Libro libro = findLibro(isbn);
             if(libro.isAlta()) {
-                System.out.println("·ISBN: " + libro.getIsbn());
-                System.out.println("·Titulo: " + libro.getTitulo());
-                System.out.println("·Anio: " + libro.getAnio());
-                System.out.println("·Autor: " + libro.getAutor().getNombre());
-                System.out.println("·Editorial: " + libro.getEditorial().getNombre());
-                System.out.println("·Ejemplares: " + libro.getEjemplares());
-                System.out.println("·Ejemplares prestados: " + libro.getEjemplaresPrest());
-                System.out.println("·Ejemplares disponibles: " + libro.getEjemplaresDisp());
+                System.out.println(libro);
+                Tools.pressIntro();
+            }
+            else {
+                System.out.println("El libro ingresado fue dado de baja.");
                 Tools.pressIntro();
             }
         }
         catch(NullPointerException e) {
-            System.err.println("ERROR: no se encontró el libro ingresado.");
+            System.err.println("ERROR: no existe el libro ingresado.");
             Tools.pressIntro();
         }
-        System.out.println("");
+        System.out.println();
     }
     
     public void modify() {
@@ -121,6 +118,7 @@ public class LibroService implements Tools {
                 System.out.println("» Nueva cantidad de ejemplares prestados: ");
                 libro.setEjemplaresPrest(read.nextInt());
             }
+            DAO.modifyObj(libro);
         } 
         else {System.err.println("ERROR: el libro ingresado no existe.");}
     }
@@ -131,9 +129,7 @@ public class LibroService implements Tools {
         Libro libro = findLibro(read.nextLong());
         try {
             libro.setAlta(Boolean.FALSE);
-            em.getTransaction().begin();
-            em.merge(libro);
-            em.getTransaction().commit();
+            DAO.modifyObj(libro);
             System.out.println("\nBaja logica con exito.");
             Tools.pressIntro();
         }
@@ -144,7 +140,7 @@ public class LibroService implements Tools {
     }
     
     public void subMenu() {
-        Boolean quit = false;
+        Boolean quit = Boolean.FALSE;
         do {
             System.out.println("\nSUBMENU LIBRO\n");
             System.out.println("1) Crear.");
@@ -168,7 +164,7 @@ public class LibroService implements Tools {
                     remove();
                     break;
                 case "5":
-                    quit = true;
+                    quit = Boolean.TRUE;
                     break;
                 default:
                     System.err.println("ERROR: opcion ingresada inexistente.");
