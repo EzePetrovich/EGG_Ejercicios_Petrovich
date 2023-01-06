@@ -84,22 +84,28 @@ public class LibroService implements Tools {
         String resp = read.next();
         switch(resp) {
             case "1":
-                
+                searchByIsbn();
+                break;
             case "2":
-                
+                searchByTitle();
+                break;
             case "3":
-                
+                searchByAuthor();
+                break;
             case "4":
-                
+                searchByEditorial();
+                break;
             case "5":
-                
+                listAll();
+                break;
             default:
-                
+                System.err.println("ERROR: opcion ingresada no valida.");
+                Tools.pressIntro();
+                break;
         }
     }
     
     public void modify() {
-        
         String resp;
         System.out.print("» Ingrese ISBN del libro: ");
         Libro libro = findLibro(read.nextLong());
