@@ -15,12 +15,12 @@ public class Menu() implements Tools {
 		String resp;
 		Tools.pressIntro();
 		do {
-			    System.out.println("MENU LIBRERIA\n");
-			    System.out.println("1) Gestionar autores.");
-			    System.out.println("2) Gestionar editoriales.");
-			    System.out.println("3) Gestionar libros.");
-			    System.out.println("4) Salir.");
-			    System.out.print("\n» Ingrese una opcion: ");
+			System.out.println("MENU LIBRERIA\n");
+			System.out.println("1) Gestionar autores.");
+			System.out.println("2) Gestionar editoriales.");
+			System.out.println("3) Gestionar libros.");
+			System.out.println("4) Salir.");
+			System.out.print("\n» Ingrese una opcion: ");
 		    	resp = read.next();
 			switch(resp) {
 				case "1":
