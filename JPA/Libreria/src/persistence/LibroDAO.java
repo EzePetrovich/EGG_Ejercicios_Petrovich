@@ -40,7 +40,7 @@ public class LibroDAO extends DAO<Libro> {
     return libro;
   }
   
-  public Libro searchByTitle(String title) {
+  public List<Libro> searchByTitle(String title) {
     connect();
     List<Libro> libros = em.createQuery("SELECT l FROM Libro l WHERE l.title LIKE: titleLibro").setParameter("titleLibro", title).getResultList();
     Libro libro = libros.get(0);
@@ -48,18 +48,16 @@ public class LibroDAO extends DAO<Libro> {
     return libro;
   }
   
-  public Libro searchByNameAutor(String name) {
+  public List<Libro> searchByNameAutor(String name) {
     connect();
     List<Libro> libros = em.createQuery("SELECT l FROM Libro l JOIN l.autor a WHERE l.autor.name LIKE: nameAutor").setParameter("nameAutor", name).getResultList();
-    Libro libro = libros.get(0);
     disconnect();
     return libro;
   }
   
-  public Libro searchByNameEditor(String name) {
+  public List<Libro> searchByNameEditor(String name) {
     connect();
     List<Libro> libros = em.createQuery("SELECT l FROM Libro l JOIN l.editorial e WHERE l.editorial.name LIKE: nameEditorial").setParameter("nameEditorial", name).getResultList();
-    Libro libro = libros.get(0);
     disconnect();
     return libro;
   }
