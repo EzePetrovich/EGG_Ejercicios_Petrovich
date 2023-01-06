@@ -51,7 +51,6 @@ public class EditorialService implements Tools {
             }
         }
         else {System.err.println("ERROR: no se encontro la editorial.");}
-        
     }
     
     public void remove() {
