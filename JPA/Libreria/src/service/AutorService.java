@@ -40,7 +40,7 @@ public class AutorService implements Tools {
     public void modify() {
         String resp;
         System.out.println("\nMODIFICAR AUTOR\n");
-        System.out.print("\n» Id autor: ");
+        System.out.print("\n» Id del autor: ");
         Autor autor = findAutor(read.nextInt());
         if(autor != null) {
             System.out.print("» Nombre? [s/n]: ");
@@ -55,7 +55,7 @@ public class AutorService implements Tools {
     
     public void remove() {
         System.out.println("\nREMOVER AUTOR\n");
-        System.out.print("» ID del autor: ");
+        System.out.print("» Id del autor: ");
         Autor autor = findAutor(read.nextInt());
         try {
             autor.setAlta(Boolean.FALSE);
@@ -72,7 +72,7 @@ public class AutorService implements Tools {
     }
     
     public void subMenu() {
-        Boolean quit = false;
+        Boolean quit = Boolean.FALSE;
         do {
             System.out.println("\nSUBMENU AUTOR\n");
             System.out.println("1) Crear.");
@@ -96,7 +96,7 @@ public class AutorService implements Tools {
                     remove();
                     break;
                 case "5":
-                    quit = true;
+                    quit = Boolean.TRUE;
                     break;
                 default:
                     System.err.println("ERROR: opcion ingresada inexistente.");
