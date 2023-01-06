@@ -10,7 +10,7 @@ public class Menu() implements Tools {
 	private final EditorialService ES = new EditorialService();
 	private final LibroService LS = new LibroService();
 	
-	public void principal() {
+	public static void principal() {
 		Boolean run = Boolean.TRUE;
 		String resp;
 		Tools.pressIntro();
