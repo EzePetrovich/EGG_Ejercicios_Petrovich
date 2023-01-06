@@ -3,6 +3,7 @@ package service;
 
 import entity.Autor;
 import persistence.AutorDAO;
+import java.util.List;
 import utilities.Tools;
 
 public class AutorService implements Tools {
@@ -23,8 +24,13 @@ public class AutorService implements Tools {
         return autor;
     }
     
-    public void consult() {
-        System.out.println("\nCONSULTAR AUTOR\n");
+    public void listAll() {
+        List<Autor> autores = DAO.listAll();
+        autores.forEach((a) -> {System.out.println(a);});
+        Tools.pressIntro();
+    }
+    
+    public void searchByName() {
         System.out.print("» Nombre del autor: ");
         Autor autor = DAO.searchByName(read.next());
         try {
@@ -34,6 +40,27 @@ public class AutorService implements Tools {
         catch(NullPointerException e) {
             System.err.println("ERROR: no se encontro el autor.");
             Tools.pressIntro();
+        }
+        Tools.pressIntro();
+    }
+    
+    public void consult() {
+        System.out.println("\nCONSULTAR AUTOR\n");
+        System.out.println("1) Buscar por nombre.");
+        System.out.println("2) Listar todos.");
+        System.out.print("\n» Ingrese una opcion: ");
+        String resp = read.next();
+        switch(resp) {
+            case "1":
+                searchByName();
+                break;
+            case "2":
+                listAll();
+                break;
+            default:
+                System.err.println("ERROR: opcion ingresada no valida.");
+                Tools.pressIntro();
+                break;
         }
     }
     
