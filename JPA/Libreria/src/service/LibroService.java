@@ -4,6 +4,7 @@ import entity.Autor;
 import entity.Editorial;
 import entity.Libro;
 import utilities.Tools;
+import java.util.List;
 
 public class LibroService implements Tools {
     
@@ -36,32 +37,65 @@ public class LibroService implements Tools {
         DAO.saveObj(libro);
     }
     
-    // public void listAll() {}
-    // public void searchByIsbn() {}
-    // public void searchByTitle() {}
-    // public void searchByEditorial() {}
-    // public void searchByAuthor() {}
+    public void listAll() {
+        List<Libro> libros = DAO.listAll();
+        libros.forEach((l) -> {System.out.println(l);});
+        Tools.pressIntro();
+    }
+    
+    public void searchByIsbn() {
+        System.out.print("» ISBN de libro: ");
+        Long isbn = read.nextLong();
+        Libro libro = findLibro(isbn);
+        if(libro.isAlta()) {System.out.println(libro);}        }
+        else {System.err.println("ERROR: no existe el libro ingresado.");}
+        Tools.pressIntro();
+    }
+    
+    public void searchByTitle() {
+        System.out.print("» Titulo de libro: ");
+        List<Libro> libros = DAO.searchByTitle(read.next());
+        libros.forEach((l) -> {System.out.println(l);});
+        Tools.pressIntro();
+    }
+
+    public void searchByEditorial() {
+        System.out.print("» Editorial de libro: ");
+        List<Libro> libros = DAO.searchByNameEditor(read.next());
+        libros.forEach((l) -> {System.out.println(l);});
+        Tools.pressIntro();
+    }
+
+    public void searchByAuthor() {
+        System.out.print("» Autor de libro: ");
+        List<Libro> libros = DAO.searchByNameAutor(read.next());
+        libros.forEach((l) -> {System.out.println(l);});
+        Tools.pressIntro();
+    }
     
     public void consult() {
         System.out.println("\nCONSULTAR LIBRO\n");
-        System.out.print("» ISBN de libro: ");
-        long isbn = read.nextLong();
-        try {
-            Libro libro = findLibro(isbn);
-            if(libro.isAlta()) {
-                System.out.println(libro);
-                Tools.pressIntro();
-            }
-            else {
-                System.out.println("El libro ingresado fue dado de baja.");
-                Tools.pressIntro();
-            }
+        System.out.println("1) Buscar por ISBN.");
+        System.out.println("2) Buscar por titulo.");
+        System.out.println("3) Buscar por autor.");
+        System.out.println("4) Buscar por editorial.");
+        System.out.println("5) Listar todos.");
+        System.out.print("\» Ingrese una opcion: ");
+        String resp = read.next();
+        switch(resp) {
+            case "1":
+                
+            case "2":
+                
+            case "3":
+                
+            case "4":
+                
+            case "5":
+                
+            default:
+                
         }
-        catch(NullPointerException e) {
-            System.err.println("ERROR: no existe el libro ingresado.");
-            Tools.pressIntro();
-        }
-        System.out.println();
     }
     
     public void modify() {
