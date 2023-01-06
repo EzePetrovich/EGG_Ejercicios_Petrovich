@@ -17,15 +17,15 @@ public class EditorialService implements Tools {
         DAO.saveObj(editorial);
     }
     
-    public Editorial findEditorial(Integer id) {
-        Editorial editorial = em.find(Editorial.class, id);
-        return editorial;
+    public void listAll() {
+        List<Editorial> editoriales = DAO.listAll();
+        editoriales.forEach((e) -> {System.out.println(e);});
+        Tools.pressIntro();
     }
     
-    public void consult() {
-        System.out.println("\nCONSULTAR EDITORIAL\n");
-        System.out.print("» ID editorial: ");
-        Editorial editorial = findEditorial(read.nextInt());
+    public void searchByName() {
+        System.out.print("» Nombre de la editorial: ");
+        Editorial editorial = DAO.searchByName(read.next());
         try {
             System.out.println(editorial);
             Tools.pressIntro();
@@ -36,9 +36,29 @@ public class EditorialService implements Tools {
         }
     }
     
+    public void consult() {
+        System.out.println("\nCONSULTAR EDITORIAL\n");
+        System.out.println("1) Buscar por nombre.");
+        System.out.println("2) Listar todas.");
+        System.out.print("\n» Ingrese una opcion: ");
+        String resp = read.next();
+        switch(resp) {
+            case "1":
+                searchByName();
+                break;
+            case "2":
+                listAll();
+                break;
+            default:
+                System.err.println("ERROR: opcion ingresada no valida.");
+                Tools.pressIntro();
+                break;
+        }
+    }
+    
     public void modify() {
         String resp;
-        System.out.println("");
+        System.out.println();
         Editorial editorial = findEditorial(read.nextInt());
         if(editorial != null) {
             System.out.println("\nMODIFICAR EDITORIAL (n para omitir)\n");
