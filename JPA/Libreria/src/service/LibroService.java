@@ -36,6 +36,12 @@ public class LibroService implements Tools {
         DAO.saveObj(libro);
     }
     
+    // public void listAll() {}
+    // public void searchByIsbn() {}
+    // public void searchByTitle() {}
+    // public void searchByEditorial() {}
+    // public void searchByAuthor() {}
+    
     public void consult() {
         System.out.println("\nCONSULTAR LIBRO\n");
         System.out.print("» ISBN de libro: ");
