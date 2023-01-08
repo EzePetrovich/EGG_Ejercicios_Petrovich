@@ -7,7 +7,9 @@ import utilities.Tools;
 
 public class AutorService implements Tools {
     
-    private final AutorDAO DAO = new AutorDAO();
+    private final AutorDAO DAO;
+    
+    public AutorService() {this.DAO = new AutorDAO();}
     
     public void create() {
         Autor autor = new Autor();
