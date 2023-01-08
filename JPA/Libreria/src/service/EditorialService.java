@@ -5,7 +5,9 @@ import utilities.Tools;
 
 public class EditorialService implements Tools {
     
-    private final EditorialDAO DAO = new EditorialDAO();
+    private final EditorialDAO DAO;
+    
+    public EditorialDAO() {this.DAO = new EditorialDAO();}
     
     public void create() {
         Editorial editorial = new Editorial();
