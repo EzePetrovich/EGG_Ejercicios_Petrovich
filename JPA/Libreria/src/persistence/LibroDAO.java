@@ -45,21 +45,21 @@ public class LibroDAO extends DAO<Libro> {
     List<Libro> libros = em.createQuery("SELECT l FROM Libro l WHERE l.title LIKE: titleLibro").setParameter("titleLibro", title).getResultList();
     Libro libro = libros.get(0);
     disconnect();
-    return libro;
+    return libros;
   }
   
   public List<Libro> searchByNameAutor(String name) {
     connect();
     List<Libro> libros = em.createQuery("SELECT l FROM Libro l JOIN l.autor a WHERE l.autor.name LIKE: nameAutor").setParameter("nameAutor", name).getResultList();
     disconnect();
-    return libro;
+    return libros;
   }
   
   public List<Libro> searchByNameEditor(String name) {
     connect();
     List<Libro> libros = em.createQuery("SELECT l FROM Libro l JOIN l.editorial e WHERE l.editorial.name LIKE: nameEditorial").setParameter("nameEditorial", name).getResultList();
     disconnect();
-    return libro;
+    return libros;
   }
   
 }
