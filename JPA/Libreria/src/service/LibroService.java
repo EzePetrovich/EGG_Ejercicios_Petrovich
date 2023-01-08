@@ -49,7 +49,7 @@ public class LibroService implements Tools {
         System.out.print("» ISBN de libro: ");
         Long isbn = read.nextLong();
         Libro libro = findLibro(isbn);
-        if(libro.isAlta()) {System.out.println(libro);}        }
+        if(libro.isAlta()) {System.out.println(libro);}        
         else {System.err.println("ERROR: no existe el libro ingresado.");}
         Tools.pressIntro();
     }
