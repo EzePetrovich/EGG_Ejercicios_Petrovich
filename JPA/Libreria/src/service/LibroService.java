@@ -8,7 +8,9 @@ import java.util.List;
 
 public class LibroService implements Tools {
     
-    private final LibroDAO DAO = new LibroDAO();
+    private final LibroDAO DAO;
+    
+    public LibroService() {this.DAO = new LibroDAO();}
     
     public Libro findLibro(Long isbn) {
         Libro libro = em.find(Libro.class, isbn);
