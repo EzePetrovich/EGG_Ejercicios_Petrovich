@@ -25,9 +25,8 @@ public class EditorialDAO extends DAO<Editorial> {
   
   public Editorial searchByName(String name) {
     connect();
-    List<Editorial> editoriales = em.createQuery("SELECT e FROM Editorial e WHERE e.name LIKE: nameEditorial").setParameter("nameEditorial", name).getResultList();
+    Editorial editorial = em.createQuery("SELECT e FROM Editorial e WHERE e.name LIKE: nameEditorial").setParameter("nameEditorial", name).getSingleResult();
     disconnect();
-    Editorial editorial = editoriales.get(0);
     return editorial;
   }
   
