@@ -25,9 +25,8 @@ public class AutorDAO extends DAO<Autor> {
   
   public Autor searchByName(String name) {
     connect();
-    List<Autor> autores = em.createQuery("SELECT a FROM Autor a WHERE a.name LIKE: nameAutor").setParameter("nameAutor", name).getResultList();
+    Autor autor = em.createQuery("SELECT a FROM Autor a WHERE a.name LIKE: nameAutor").setParameter("nameAutor", name).getSingleResult();
     disconnect();
-    Autor autor = autores.get(0);
     return autor;
   }
   

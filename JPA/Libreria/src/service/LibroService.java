@@ -8,7 +8,9 @@ import java.util.List;
 
 public class LibroService implements Tools {
     
-    private final LibroDAO DAO = new LibroDAO();
+    private final LibroDAO DAO;
+    
+    public LibroService() {this.DAO = new LibroDAO();}
     
     public Libro findLibro(Long isbn) {
         Libro libro = em.find(Libro.class, isbn);
@@ -47,7 +49,7 @@ public class LibroService implements Tools {
         System.out.print("» ISBN de libro: ");
         Long isbn = read.nextLong();
         Libro libro = findLibro(isbn);
-        if(libro.isAlta()) {System.out.println(libro);}        }
+        if(libro.isAlta()) {System.out.println(libro);}        
         else {System.err.println("ERROR: no existe el libro ingresado.");}
         Tools.pressIntro();
     }

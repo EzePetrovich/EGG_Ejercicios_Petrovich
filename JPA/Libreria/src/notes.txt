@@ -1,0 +1,1 @@
+NoResultException: se arroja cuando la consulta no trae ningún resultado.
