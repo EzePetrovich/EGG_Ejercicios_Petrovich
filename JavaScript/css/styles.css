@@ -1,0 +1,40 @@
+#form-circ {
+    padding: 10px;
+    font-weight: bold;
+}
+
+#form-circ #send {
+    background-color: #1eaf0b;
+    color: white;
+    border-width: 0;
+    border-radius: 5px;
+    margin: 5px;
+}
+
+#form-circ #send:hover {
+    background-color: #24c50f;
+    scale: 105%;
+}
+
+#form-circ #send:active {
+    scale: 95%;
+}
+
+#table-circ th {
+    color: white;
+    font-weight: lighter;
+    background-color: forestgreen;
+}
+
+#table-circ td {
+    background-color: lightgray;
+}
+
+#table-circ, #table-circ th, #table-circ td {
+    width: 20%;
+    text-align: center;
+}
+
+#result-table {
+    color: #999;
+}
