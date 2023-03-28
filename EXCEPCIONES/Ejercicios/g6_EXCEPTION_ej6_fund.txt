@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 6. Dado el método metodoA de la clase A, indique:
 a) ¿Qué sentencias y en qué orden se ejecutan si se produce la excepción MioException?
 b) ¿Qué sentencias y en qué orden se ejecutan si no se produce la excepción MioException?
@@ -44,4 +45,52 @@ b) Si no se produce la excepción, las sentencias que se ejecutarán serán y en
 2) sentencia_a2.
 3) sentencia_a3.
 4) sentencia_a4.
+=======
+6. Dado el método metodoA de la clase A, indique:
+a) ¿Qué sentencias y en qué orden se ejecutan si se produce la excepción MioException?
+b) ¿Qué sentencias y en qué orden se ejecutan si no se produce la excepción MioException?
+
+class A {
+	public void metodoA() {
+		sentencia_a1
+		sentencia_a2
+		try {
+			sentencia_a3
+			sentencia_a4
+		} catch (MioException e){
+			sentencia_a6
+		}
+		sentencia_a5
+	}
+}
+
+----------- SOLUCIÓN -----------
+
+a) Si se produce una excepción, las sentencias que se ejecutarán serán y en el siguiente orden:
+
+1) sentencia_a1.
+2) sentencia_a2.
+
+Luego dependiendo de la sentencia que provoque la excepción (ya que son dos dentro del try) podemos tener dos posibles resultados:
+
+PRIMERO:
+
+3) sentencia_a3.
+4) sentencia_a4. (Provoca la excepción)
+5) sentencia_a6.
+6) sentencia_a5.
+
+SEGUNDO:
+
+3) sentencia_a3. (Provoca la excepción)
+4) sentencia_a6.
+5) sentencia_a5.
+
+b) Si no se produce la excepción, las sentencias que se ejecutarán serán y en el siguiente orden:
+
+1) sentencia_a1.
+2) sentencia_a2.
+3) sentencia_a3.
+4) sentencia_a4.
+>>>>>>> 9744b90784dd0a6f5c2cb2dc20ab7ea4ca4b0d5e
 5) sentencia_a5.

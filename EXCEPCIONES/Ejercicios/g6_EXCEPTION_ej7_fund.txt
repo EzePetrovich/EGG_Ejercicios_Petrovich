@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 7. Dado el método metodoB de la clase B, indique:
 a) ¿Qué sentencias y en qué orden se ejecutan si se produce la excepción MioException?
 b) ¿Qué sentencias y en qué orden se ejecutan si no se produce la excepción MioException?
@@ -32,4 +33,40 @@ b) Las sentencias que se ejecutarán en el caso de que no se produzca la excepci
 2) sentencia_b2. (try)
 4) sentencia_b4. (finally)
 
+=======
+7. Dado el método metodoB de la clase B, indique:
+a) ¿Qué sentencias y en qué orden se ejecutan si se produce la excepción MioException?
+b) ¿Qué sentencias y en qué orden se ejecutan si no se produce la excepción MioException?
+
+class B {
+	public void metodoB() {
+		sentencia_b1
+		try {
+			sentencia_b2
+		} catch (MioException e){
+			sentencia_b3
+		}
+		finally
+			sentencia_b4
+	}
+}
+
+----------- SOLUCIÓN -----------
+
+Inicialmente podemos observar que la sentencia "finally" del try no encierra su sentencia entre llaves, lo cuál genera un error de sintáxis, sin embargo, de igual manera se puede compilar y ejecutar el programa:
+
+a) Las sentencias que se ejecutarán en el caso de que se produzca la excepción dentro del try, serán y en el siguiente orden:
+
+1) sentencia_b1. (fuera del try)
+2) sentencia_b2. (Provoca la excepción dentro del try)
+3) sentencia_b3. (catch)
+4) sentencia_b4. (finally)
+
+b) Las sentencias que se ejecutarán en el caso de que no se produzca la excepción dentro del try, serán y en el siguiente orden:
+
+1) sentencia_b1. (fuera del try)
+2) sentencia_b2. (try)
+4) sentencia_b4. (finally)
+
+>>>>>>> 9744b90784dd0a6f5c2cb2dc20ab7ea4ca4b0d5e
 Como observamos anteriormente, la sentencia "finally" de la estructura try, siempre se ejecuta se provoque o no la excepción.

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 9. Dado el método metodoC de la clase C, indique:
 a) ¿Qué sentencias y en qué orden se ejecutan si se produce la excepción MioException?
 b) ¿Qué sentencias y en qué orden se ejecutan si no se produce la excepción MioException?
@@ -71,3 +72,78 @@ SEGUNDO:
 4) sentencia_c5.
 5) throw(e).
 
+=======
+9. Dado el método metodoC de la clase C, indique:
+a) ¿Qué sentencias y en qué orden se ejecutan si se produce la excepción MioException?
+b) ¿Qué sentencias y en qué orden se ejecutan si no se produce la excepción MioException?
+c) ¿Qué sentencias y en qué orden se ejecutan si se produce la excepción TuException?
+
+class C {
+
+	void metodoC() throws TuException {
+		sentencia_c1
+		try {
+			sentencia_c2
+			sentencia_c3
+		} catch (MioException e){
+			sentencia_c4
+		} catch (TuException e){
+			sentencia_c5
+			throw (e)
+		}
+		finally
+			sentencia_c6
+	}
+	
+}
+
+----------- SOLUCIÓN -----------
+
+a) La sentencias que se ejecutaran si se produce la excepción MioException serán y en el siguiente orden:
+
+1) sentencia_c1.
+
+A partir de acá (dentro del try) tenemos dos posibles resultados:
+
+PRIMERO:
+
+2) sentencia_c2.
+3) sentencia_c3. (Provoca la excepción MioException)
+4) sentencia_c4.
+5) sentencia_c6.
+
+SEGUNDO:
+
+2) sentencia_c2. (Provoca la excepción MioException)
+3) sentencia_c4.
+4) sentencia_c6.
+
+b) La sentencias que se ejecutaran si no se produce la excepción MioException serán y en el siguiente orden:
+
+1) sentencia_c1.
+2) sentencia_c2.
+3) sentencia_c3.
+4) sentencia_c6.
+
+c) La sentencias que se ejecutaran si se produce la excepción TuException serán y en el siguiente orden:
+
+1) sentencia_c1.
+
+A partir de acá (dentro del try) tenemos dos posibles resultados:
+
+PRIMERO:
+
+2) sentencia_c2.
+3) sentencia_c3. (Provoca la excepción TuException)
+4) sentencia_c6.
+5) sentencia_c5.
+6) throw(e).
+
+SEGUNDO:
+
+2) sentencia_c2. (Provoca la excepción MioException)
+3) sentencia_c6.
+4) sentencia_c5.
+5) throw(e).
+
+>>>>>>> 9744b90784dd0a6f5c2cb2dc20ab7ea4ca4b0d5e
